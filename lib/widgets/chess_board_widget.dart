@@ -85,37 +85,7 @@ class ChessBoardWidget extends StatelessWidget {
                       kingInCheckPosition: kingInCheckPosition,
                     ),
                     child: Stack(
-                      children: [
-                        // Render pieces
-                        ...List.generate(8, (row) {
-                          return ...List.generate(8, (col) {
-                            final piece = board[row][col];
-                            if (piece == null) {
-                              return const SizedBox.shrink();
-                            }
-
-                            final isSelected = selectedPosition != null &&
-                                selectedPosition!.row == row &&
-                                selectedPosition!.col == col;
-
-                            return Positioned(
-                              left: col * squareSize,
-                              top: row * squareSize,
-                              width: squareSize,
-                              height: squareSize,
-                              child: AnimatedScale(
-                                scale: isSelected ? 1.15 : 1.0,
-                                duration: const Duration(milliseconds: 150),
-                                child: ChessPieceWidget(
-                                  piece: piece,
-                                  size: squareSize,
-                                  isSelected: isSelected,
-                                ),
-                              ),
-                            );
-                          });
-                        }),
-                      ],
+                      children: _buildPieceWidgets(squareSize),
                     ),
                   ),
                 ),
@@ -125,6 +95,38 @@ class ChessBoardWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Builds the piece widgets on top of the board.
+  List<Widget> _buildPieceWidgets(double squareSize) {
+    final widgets = <Widget>[];
+    for (var row = 0; row < 8; row++) {
+      for (var col = 0; col < 8; col++) {
+        final piece = widget.board[row][col];
+        if (piece == null) continue;
+
+        final isSelected = widget.selectedPosition != null &&
+            widget.selectedPosition!.row == row &&
+            widget.selectedPosition!.col == col;
+
+        widgets.add(Positioned(
+          left: col * squareSize,
+          top: row * squareSize,
+          width: squareSize,
+          height: squareSize,
+          child: AnimatedScale(
+            scale: isSelected ? 1.15 : 1.0,
+            duration: const Duration(milliseconds: 150),
+            child: ChessPieceWidget(
+              piece: piece,
+              size: squareSize,
+              isSelected: isSelected,
+            ),
+          ),
+        ));
+      }
+    }
+    return widgets;
   }
 }
 
