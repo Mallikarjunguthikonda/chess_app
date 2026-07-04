@@ -25,7 +25,9 @@ jobs:
         run: flutter pub get
 
       - name: Generate Android project files
-        run: flutter create --project-name chess_app --platforms android .
+        run: |
+          flutter create --project-name chess_app --platforms android .
+          rm -f test/widget_test.dart
 
       - name: Run analyzer
         run: flutter analyze --no-fatal-warnings --no-fatal-infos

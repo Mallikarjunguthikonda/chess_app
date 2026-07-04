@@ -74,6 +74,9 @@ class GameNotifier extends StateNotifier<GameStateData> {
   final SoundService _soundService;
   final StorageService _storageService;
 
+  /// Public accessor for the game state (bypasses protected state field).
+  GameStateData get gameState => state;
+
   GameNotifier({
     required AIService aiService,
     required SoundService soundService,

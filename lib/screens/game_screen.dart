@@ -66,7 +66,7 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final gameState = _gameNotifier.state;
+    final gameState = _gameNotifier.gameState;
     final engine = gameState.engine;
     final theme = Theme.of(context);
 
@@ -78,7 +78,7 @@ class _GameScreenState extends State<GameScreen> {
     // Show promotion dialog when needed
     if (gameState.showPromotionDialog && gameState.promotionMoves != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (!mounted || !_gameNotifier.state.showPromotionDialog) return;
+        if (!mounted || !_gameNotifier.gameState.showPromotionDialog) return;
         showDialog(
           context: context,
           barrierDismissible: false,
@@ -324,7 +324,7 @@ class _GameScreenState extends State<GameScreen> {
 
   /// Shows a confirmation dialog before restarting.
   void _confirmRestart() {
-    if (_gameNotifier.state.engine.moveHistory.isEmpty) {
+    if (_gameNotifier.gameState.engine.moveHistory.isEmpty) {
       _gameNotifier.restartGame();
       return;
     }
