@@ -86,7 +86,6 @@ class _AnimatedDots extends StatefulWidget {
 class _AnimatedDotsState extends State<_AnimatedDots>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _dotAnimation;
 
   @override
   void initState() {

@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../models/chess_piece.dart';
 import '../models/game_state.dart';
 import '../models/player.dart';
-import '../models/move.dart';
 import '../models/position.dart';
 import '../providers/game_provider.dart';
 import '../widgets/chess_board_widget.dart';

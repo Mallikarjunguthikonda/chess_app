@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/settings_provider.dart';
 import '../providers/statistics_provider.dart';
-import '../providers/game_provider.dart';
-import '../widgets/ai_thinking_indicator.dart';
 import 'game_screen.dart';
 import 'settings_screen.dart';
 import 'statistics_screen.dart';
@@ -18,7 +16,6 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final settings = ref.watch(settingsProvider);
-    final stats = ref.watch(statisticsProvider);
     final storage = StorageService();
     final hasSavedGame = storage.hasSavedGame();
 

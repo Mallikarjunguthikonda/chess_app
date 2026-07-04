@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/material.dart';
 import '../models/chess_piece.dart';
 import '../models/move.dart';
 import '../models/player.dart';

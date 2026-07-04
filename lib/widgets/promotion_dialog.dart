@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/chess_piece.dart';
-import '../models/player.dart';
 
 /// Dialog shown when a pawn reaches the promotion rank.
 ///

@@ -1,5 +1,3 @@
-import 'chess_piece.dart';
-
 /// Represents the current status of a chess game.
 enum GameStatus {
   playing,
