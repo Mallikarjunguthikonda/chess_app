@@ -85,7 +85,7 @@ class ChessBoardWidget extends StatelessWidget {
                       kingInCheckPosition: kingInCheckPosition,
                     ),
                     child: Stack(
-                      children: _buildPieceWidgets(squareSize),
+                      children: _buildPieceWidgets(squareSize, board, selectedPosition),
                     ),
                   ),
                 ),
@@ -98,16 +98,20 @@ class ChessBoardWidget extends StatelessWidget {
   }
 
   /// Builds the piece widgets on top of the board.
-  List<Widget> _buildPieceWidgets(double squareSize) {
+  List<Widget> _buildPieceWidgets(
+    double squareSize,
+    List<List<ChessPiece?>> board,
+    Position? selectedPosition,
+  ) {
     final widgets = <Widget>[];
     for (var row = 0; row < 8; row++) {
       for (var col = 0; col < 8; col++) {
-        final piece = widget.board[row][col];
+        final piece = board[row][col];
         if (piece == null) continue;
 
-        final isSelected = widget.selectedPosition != null &&
-            widget.selectedPosition!.row == row &&
-            widget.selectedPosition!.col == col;
+        final isSelected = selectedPosition != null &&
+            selectedPosition.row == row &&
+            selectedPosition.col == col;
 
         widgets.add(Positioned(
           left: col * squareSize,
