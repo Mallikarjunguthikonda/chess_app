@@ -14,6 +14,7 @@ import '../widgets/game_status_bar.dart';
 import '../widgets/ai_thinking_indicator.dart';
 import '../services/ai_service.dart';
 import '../services/sound_service.dart';
+import '../services/chess_engine.dart';
 import '../services/storage_service.dart';
 
 /// Main game screen with the chess board, controls, and side panels.

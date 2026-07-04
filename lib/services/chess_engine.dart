@@ -50,7 +50,9 @@ class ChessEngine {
   Player? winner;
 
   /// Creates a new game with pieces in starting position.
-  ChessEngine() : board = List.generate(8, (_) => List.filled(8, null)) {
+  ChessEngine()
+      : board = List.generate(8, (_) => List.filled(8, null)),
+        currentPlayer = Player.white {
     _setupBoard();
     positionHistory.add(_boardToFen());
   }
@@ -66,8 +68,7 @@ class ChessEngine {
     this.enPassantTarget,
     this.halfMoveClock = 0,
     this.fullMoveCount = 1,
-  }) : moveHistory = [],
-       positionHistory = [] {
+  }) {
     _findKings();
   }
 

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../models/game_state.dart';
 import '../models/settings.dart';
@@ -35,7 +34,7 @@ class StorageService {
   AppSettings loadSettings() {
     final box = Hive.box(_settingsBox);
     if (box.isEmpty) return const AppSettings();
-    return AppSettings.fromMap(box.toMap());
+    return AppSettings.fromMap(box.toMap().cast<String, dynamic>());
   }
 
   // ---------------------------------------------------------------------------
@@ -52,7 +51,7 @@ class StorageService {
   GameStatistics loadStatistics() {
     final box = Hive.box(_statsBox);
     if (box.isEmpty) return GameStatistics();
-    return GameStatistics.fromMap(box.toMap());
+    return GameStatistics.fromMap(box.toMap().cast<String, dynamic>());
   }
 
   // ---------------------------------------------------------------------------

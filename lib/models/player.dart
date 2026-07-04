@@ -7,7 +7,7 @@ enum Player {
   Player get opponent => this == white ? black : white;
 
   /// Returns the index for board arrays (0 for white, 1 for black).
-  int get index => this == white ? 0 : 1;
+  int get boardIndex => this == white ? 0 : 1;
 
   /// Returns the display name.
   String get label => this == white ? 'White' : 'Black';

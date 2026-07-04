@@ -8,6 +8,7 @@ import 'game_screen.dart';
 import 'settings_screen.dart';
 import 'statistics_screen.dart';
 import '../services/storage_service.dart';
+import '../models/game_state.dart';
 
 /// Home screen with game mode selection and navigation.
 class HomeScreen extends ConsumerWidget {

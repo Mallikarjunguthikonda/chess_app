@@ -3,6 +3,7 @@ import 'package:chess_app/models/chess_piece.dart';
 import 'package:chess_app/models/position.dart';
 import 'package:chess_app/models/move.dart';
 import 'package:chess_app/models/player.dart';
+import 'package:chess_app/models/game_state.dart';
 import 'package:chess_app/services/chess_engine.dart';
 
 void main() {

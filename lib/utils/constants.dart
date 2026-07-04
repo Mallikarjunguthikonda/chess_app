@@ -1,3 +1,5 @@
+import 'package:flutter/painting.dart';
+
 /// Application-wide constants.
 class AppConstants {
   AppConstants._();

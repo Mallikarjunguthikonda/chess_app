@@ -335,7 +335,7 @@ class GameNotifier extends StateNotifier<GameStateData> {
 
   /// Undoes the last move (and AI's move in PvE mode).
   void undoMove() {
-    if (state.moveHistory.isEmpty || state.isAIThinking) return;
+    if (state.engine.moveHistory.isEmpty || state.isAIThinking) return;
 
     // In PvE mode, undo both AI move and player's last move
     if (state.gameMode == GameMode.pve && state.engine.moveHistory.length >= 2) {
